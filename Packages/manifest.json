@@ -1,5 +1,8 @@
 {
   "dependencies": {
+    "com.cf.board": "https://github.com/coverfrog/CBoard.git?path=/Assets/CBoard",
+    "com.cf.card": "https://github.com/coverfrog/CCard.git?path=/Assets/CCard",
+    "com.cf.steam": "https://github.com/coverfrog/CSteam.git?path=/Assets/CSteam",
     "com.unity.ai.navigation": "2.0.8",
     "com.unity.collab-proxy": "2.8.2",
     "com.unity.ide.rider": "3.0.36",
