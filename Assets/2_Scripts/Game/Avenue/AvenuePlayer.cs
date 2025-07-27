@@ -2,15 +2,14 @@ using UnityEngine;
 
 public class AvenuePlayer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private bool mIsMine;
+    [SerializeField] private bool mIsPlayer;
+    [SerializeField] private ulong mId;
+    
+    public void Init(bool isMine, bool isPlayer, ulong id)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        mIsMine = isMine;
+        mIsPlayer = isPlayer;
+        mId = id;
     }
 }

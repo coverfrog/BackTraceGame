@@ -24,5 +24,8 @@ public sealed class SceneGame : SceneHandler
 #if UNITY_EDITOR
         Debug.Log("Init Complete");
 #endif
+        
+        avenue.AddPlayer(true, true,1004);
+        avenue.AddPlayer(false, false,777);
     }
 }

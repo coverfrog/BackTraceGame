@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -11,9 +12,8 @@ public class AvenuePlayerGroup : MonoBehaviour
 
     [Header("Debug View")]
     [SerializeField] private AvenuePlayer playerPrefab;
+    [SerializeField] private List<AvenuePlayer> playerList = new List<AvenuePlayer>();
 
-    private bool _isInit;
-    
     public void Init(Action onComplete)
     {
         StartCoroutine(CoInit(onComplete));
@@ -25,36 +25,39 @@ public class AvenuePlayerGroup : MonoBehaviour
 
         int initCount = 0;
         
-        InitPrefab(() => ++initCount);
+        InitPrefab<AvenuePlayer>(playerReference, (result) =>
+        {
+            playerPrefab = result;
+            
+            ++initCount;
+        });
         
         while (initCount < initTarget) yield return null;
         
         onComplete?.Invoke();
-        
-        _isInit = true;
     }
     
-    private void InitPrefab(Action onComplete)
+    private void InitPrefab<T>(AssetReference reference, Action<T> onComplete) 
     {
-        bool exist = playerReference != null && playerReference.RuntimeKeyIsValid();
+        bool exist = reference != null && reference.RuntimeKeyIsValid();
 
         if (!exist)
         {
 #if UNITY_EDITOR
-            Debug.Assert(false,"No player reference found");
+            Debug.Assert(false,"No reference found");
 #endif
         }
 
-        Addressables.LoadAssetAsync<GameObject>(playerReference).Completed += (op) =>
+        Addressables.LoadAssetAsync<GameObject>(reference).Completed += (op) =>
         {
             if (op.Status != AsyncOperationStatus.Succeeded)
             {
                 return;
             }
           
-            if (op.Result.TryGetComponent(out playerPrefab))
+            if (op.Result.TryGetComponent(out T t))
             {
-                onComplete?.Invoke();
+                onComplete?.Invoke(t);
             }
 
             else
@@ -64,5 +67,14 @@ public class AvenuePlayerGroup : MonoBehaviour
 #endif
             }
         };
+    }
+
+    public void AddPlayer(bool isMine, bool isPlayer, ulong id)
+    {
+       AvenuePlayer player = Instantiate(playerPrefab, transform);
+       player.gameObject.name = $"Player[ {(isMine ? "Mine" : "Other")} ] : {id}";
+       player.Init(isMine, isPlayer, id);
+       
+       playerList.Add(player);
     }
 }
