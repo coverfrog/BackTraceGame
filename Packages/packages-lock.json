@@ -23,7 +23,7 @@
       "dependencies": {
         "com.unity.netcode.gameobjects": "2.4.4"
       },
-      "hash": "1d8005e555e0de5207ee28dc26bf6e41232c4996"
+      "hash": "1bd80300760b675e9c602a569de57b3b3c9bb19e"
     },
     "com.unity.addressables": {
       "version": "2.6.0",
