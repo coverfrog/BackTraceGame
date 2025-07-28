@@ -15,11 +15,6 @@ MonoBehaviour:
   m_GroupName: Default Local Group
   m_GUID: 6170071ba9b436f439383503bca9416a
   m_SerializeEntries:
-  - m_GUID: 36cc3b74fcddaeb46b66d494cb1a63d0
-    m_Address: Assets/3_Prefabs/Avenue Player.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3e74e999a45e3df4e9988ef6d92b9d31
     m_Address: Assets/3_Prefabs/Slot.prefab
     m_ReadOnly: 0

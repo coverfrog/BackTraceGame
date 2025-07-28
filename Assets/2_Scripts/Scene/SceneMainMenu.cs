@@ -10,9 +10,8 @@ public sealed class SceneMainMenu : SceneHandler
 
     public override IEnumerator Start()
     {
-        yield return base.Start();
-        
         modeSelector.Init(this);
         
+        return base.Start();
     }
 }

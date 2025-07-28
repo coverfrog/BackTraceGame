@@ -7,14 +7,14 @@
       "dependencies": {
         "com.unity.addressables": "2.6.0"
       },
-      "hash": "d1f20df96afd63dfd0344bba844228c9ca163e38"
+      "hash": "38935fc64ea697065a59def6ae2ffacc9316af82"
     },
     "com.cf.card": {
       "version": "https://github.com/coverfrog/CCard.git?path=/Assets/CCard",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "3a699748f74a297a0510dae156832de83446fd5e"
+      "hash": "145eeaad56c42f2617e20a5d21d737111fa18a44"
     },
     "com.cf.steam": {
       "version": "https://github.com/coverfrog/CSteam.git?path=/Assets/CSteam",
