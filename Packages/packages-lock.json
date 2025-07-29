@@ -14,7 +14,7 @@
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "13a74c9e9cfce0c6d8e58d48d11e15b4459df8e3"
+      "hash": "87dc901e66e5d36253ff221e90654f5ea993c94e"
     },
     "com.cf.steam": {
       "version": "https://github.com/coverfrog/CSteam.git?path=/Assets/CSteam",
