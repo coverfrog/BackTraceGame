@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class SteamTest : MonoBehaviour
 {
+    private void Start()
+    {
+        SteamManager.Instance.OnActNetworkSpawn += OnNetworkSpawn;
+    }
+
     [ContextMenu("> Host Start")]
     public void HostStart()
     {
@@ -12,5 +17,10 @@ public class SteamTest : MonoBehaviour
     public void ClientStart()
     {
         
+    }
+    
+    private void OnNetworkSpawn()
+    {
+        Debug.Log("네트워크 접속");
     }
 }
